@@ -31,9 +31,9 @@ options(width = 80)
 options(useFancyQuotes = FALSE)
 
 # warn on partial matches
-options(warnPartialMatchAttr = TRUE,
-        warnPartialMatchDollar = TRUE,
-        warnPartialMatchArgs = TRUE)
+#options(warnPartialMatchAttr = TRUE,
+#        warnPartialMatchDollar = TRUE,
+#        warnPartialMatchArgs = TRUE)
 
 # warnings are errors
 options(warn = 2)
@@ -81,15 +81,15 @@ utils::rc.settings(ipck=TRUE)
   cat("\nGoodbye,", Sys.getenv("LOGNAME"), "!", date(), "\n")
 }
 
-if(Sys.getenv("TERM") == "xterm-256color")
-  library("colorout")
+auto.loads <-c("dplyr", "ggplot2", "colorout")
+if(Sys.getenv("TERM") == "xterm-256color") library("colorout")
 
 sshhh <- function(a.package){
   suppressWarnings(suppressPackageStartupMessages(
     library(a.package, character.only=TRUE)))
 }
 
-auto.loads <-c("dplyr", "ggplot2")
+
  
 if(interactive()){
   invisible(sapply(auto.loads, sshhh))
