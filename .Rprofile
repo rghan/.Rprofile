@@ -103,5 +103,12 @@ attach(.env)
   x
 }
 
+## put every object created in .Rprofile within its own environment,
+## and then attaching that environment to the search path
+.__Rprofile_env__. <- new.env(parent = emptyenv())
+
+## ... fill .__Rprofile_env__. with stuff ...
+
+attach(.__Rprofile_env__.)
 
 message("n*** Successfully loaded .Rprofile ***n")
